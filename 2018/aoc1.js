@@ -1,7 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+const utils = require('./../utils');
 
-const INPUT_PATH = path.join(process.cwd(), 'input/2018/day-1.txt');
+const INPUT_DATA = utils.openInputForDay(1, 2018);
 
 function calculateDrift(drifts) {
   return drifts
@@ -25,20 +24,18 @@ function findFirstDuplicateFrequency(drifts) {
 
 function formatInput(fileContent) {
   return fileContent
-    .split('\n')
     .filter(value => Boolean(value))
     .map(value => parseFloat(value));
 }
 
 function main() {
-  const text = fs.readFileSync(INPUT_PATH, { encoding: 'utf8' });
   if(process.argv.length < 3) {
     process.stdout.write('Please provide the part of code you would like to run\n');
     process.stdout.write('USE: node 2018/aoc1.js [PART]\n');
     process.exit(0);
   }
 
-  const input = formatInput(text)
+  const input = formatInput(INPUT_DATA)
   switch (process.argv[2]) {
     case '1':
       console.log(calculateDrift(input));
