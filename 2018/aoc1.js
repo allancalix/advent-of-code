@@ -29,7 +29,7 @@ function formatInput(fileContent) {
 }
 
 function main() {
-  if(process.argv.length < 3) {
+  if (process.argv.length < 3) {
     process.stdout.write('Please provide the part of code you would like to run\n');
     process.stdout.write('USE: node 2018/aoc1.js [PART]\n');
     process.exit(0);
